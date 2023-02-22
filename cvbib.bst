@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `pres,pres-bf,seq-yrr,nm-rvx,jnrlst,dt-beg,yr-par,atit-u,pgsep-c,num-xser,isbn,doi,xedn,nfss,')
+%% merlin.mbs  (with options: `pres,pres-bf,seq-yrr,nm-rvx,jnrlst,mct-4,mct-x5,dt-beg,yr-par,atit-u,pgsep-c,num-xser,isbn,doi,xedn,nfss,')
 %% ----------------------------------------
 %% *** CV citations ***
 %% 
