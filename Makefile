@@ -1,6 +1,7 @@
 BUILD=build
 BBLS=$(BUILD)/pr.bbl $(BUILD)/conf.bbl $(BUILD)/post.bbl $(BUILD)/talk.bbl \
-	 $(BUILD)/mthd.bbl $(BUILD)/code.bbl $(BUILD)/prep.bbl
+	 $(BUILD)/dev.bbl $(BUILD)/mthd.bbl $(BUILD)/code.bbl $(BUILD)/prep.bbl \
+	 $(BUILD)/book.bbl
 
 all: $(BUILD)/cv.pdf
 
@@ -8,11 +9,25 @@ $(BUILD)/cv.pdf: $(BBLS)
 	pdflatex -output-directory=$(BUILD) cv
 	pdflatex -output-directory=$(BUILD) cv
 
-%.aux: cv.tex contact.tex self.bib cvbib.bst
+%.aux: cv.tex contact.tex self.bib zenodo.bib cvbib.bst
 	pdflatex -output-directory=$(BUILD) cv
 
 %.bbl: %.aux
 	bibtex $<
+
+zenodo.bib: zenodo.stamp.md5
+	$(eval SIZE=$(shell jq .[1] zenodo.stamp ))
+	curl -H 'Accept: application/x-bibtex' \
+		"https://zenodo.org/api/records/?q=creators.orcid:0000-0002-6533-164X&size=$(SIZE)" | \
+	bibtool -r biblatex -r cv -s -F -f '{%-2T(title)}' -o zenodo.bib
+
+zenodo.stamp: FORCE
+	curl https://zenodo.org/api/records/\?q\=creators.orcid:0000-0002-6533-164X\&size\=1\&sort\=-publication_date | jq "[.hits.hits[0].updated, .hits.total]" > zenodo.stamp
+
+%.md5: %
+	@$(if $(filter-out $(shell cat $@ 2>/dev/null),$(shell md5sum $*)),md5sum $* > $@)
+
+FORCE:
 
 cvbib.bst: cvbib.dbj
 	latex $<
