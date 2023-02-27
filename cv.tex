@@ -1,5 +1,5 @@
 \documentclass[11pt,letterpaper,sans]{moderncv}
-\moderncvtheme[grey]{classic}
+\moderncvtheme[blue]{classic}
 \usepackage[utf8]{inputenc}
 
 \usepackage[scale=0.75,margin=.75in]{geometry}
@@ -16,28 +16,32 @@
 % For example, pr creates \citepr, \nocitepr, \bibliographystylepr, \bibliographypr
 % \bibliographystylepr will create a \subsection{Peer Reviewed Journals}
 % And so on.
-\newcites{pr,conf,prep,post,talk,mthd,code}{Peer Reviewed Journals,%
+\newcites{pr,conf,book,prep,post,talk,dev,mthd,code}{%
+    Peer Reviewed Journals,%
     Conference Proceedings,%
+    Books and Book Chapters,%
     Preprints,%
     Poster Presentations,%
     Invited Talks,%
+    Developed and Maintained Software,%
     Published Methods,%
     Contributions to Open Source Scientific Software}
 
 \makeatletter
+\def\@biblabel#1{}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \renewcommand*\bibliographyitemlabel{\@biblabel{\arabic{enumiv}}}
+\renewcommand{\labelitemi}{$\bullet$}
 \makeatother
 
 \newdateformat{monthyeardate}{\monthname[\THEMONTH], \THEYEAR}
 
-\title{Curriculum Vitae}
+% \title{Curriculum Vitae}
 \input{contact}
 
 \begin{document}
 \makecvtitle
 
-\vspace{-1em}
 \section{Education}
 \cventry{2017}{PhD. Cognitive and Neural Systems}%
     {Boston University}{Boston, MA}{}%
@@ -47,9 +51,15 @@
 \cventry{2009}{BS. Mathematics}{University of Tulsa}{Tulsa, OK}{}{}
 \cventry{2009}{BCS. Computer Science}{University of Tulsa}{Tulsa, OK}{}{}
 
-\section{Professional Employment}
+\section{Experience}
 \cventry{2017 -- }{Software Developer}{Stanford University}{Stanford, CA}{}%
-    {Center for Reproducible Neuroscience}
+    {Center for Reproducible Neuroscience
+\begin{itemize}
+  \item fMRIPrep - developer
+  \item FitLins - lead developer
+  \item OpenNeuro - technical lead
+  \item Brain Imaging Data Structure (BIDS) - maintainer, extension lead
+\end{itemize}}
 \cventry{2009 -- 2010}{Bioinformatics programmer}{University of Tulsa}%
     {Tulsa, OK}{}{InSilico Research Group: PySNPRank, PyGAIN, Bioinformatics format converters}
 \cventry{2009 -- 2010}{Neuroinformatics intern}%
@@ -61,21 +71,58 @@
 %% \cventry{Summer 2007}{Intern}{Meketrex Technologies, Inc.}{Tulsa, OK}{}%
 %%     {Technical copywriting}
 
-\section{Teaching Experience}
+\section{Teaching}
 \cventry{2019 -- }{Instructor}{Martinos Center for Biomedical Imaging - Functional MRI Workshop}{Boston}{MA}%
     {Lectures: ``fMRIPrep: A Robust Preprocessing Pipeline for fMRI Data''\\
      ``BIDS: Brain Imaging Data Structure; Quality Assurance Issues''}
 \cventry{2022}{Instructor}{Practice and Theory of Brain Imaging}{Online course}{}{}
+\cventry{2020}{Instructor}{Neuro Data Science}{Montreal}{QC}{}
+\cventry{2020}{Instructor}{Neurohackademy}{Online}{}{}
+\cventry{2019}{Instructor}{Neurohackademy}{Seattle}{WA}{}
 \cventry{2019}{Instructor}{Coastal Coding Workshop}{Miami}{FL}{}
 \cventry{2017}{Instructor}{Hands-on Reproducible and Scalable Brain Imaging Analysis with Nipype}{Cambridge}{MA}{}
+%%%% Out of scope
 %% \cventry{2008 -- 2009}{Tutor}{University College Cork}{Cork}{Ireland}%
 %%     {CS 4620/4621 Functional Programming. Professor: Joseph Manning}
 %% \cventry{2007 -- 2008}{Teaching assistant}{University of Tulsa}{Tulsa}{OK}%
 %%     {MATH 1083 Contemporary Mathematics. Professor: Janica Edmonds}
 
-\section{Grants}
-\cventry{2021 -- 2023}{Strengthening Community and Code Foundations for Brain Imaging}{}%
+\section{Research funding}
+\subsection{Active}
+\cventry{2021 -- 2023}{Co-Investigator}{Strengthening Community and Code Foundations for Brain Imaging}%
     {CZI Essential Open Source Software}{}{}
+
+\section{Professional societies}
+\cvline{}{Organization for Human Brain Mapping}
+
+\pagebreak
+
+\section{Open source development\protect\footnotemark[1]}
+\footnotetext[1]{Associated publications and additional contributions in \hyperref[Software]{Software section}}
+\cventry{2019 -- }{Maintainer}{PyBIDS}{\href{https://bids-standard.github.io/pybids/}{bids-standard.github.io/pybids}}{}%
+  {Python tools for querying and manipulating BIDS datasets}
+\cventry{2018 -- }{Maintainer}{Pydra}{\href{https://nipype.github.io/pydra/}{nipype.github.io/pydra}}{}%
+  {Dataflow engine that forms the core of the Nipype 2 ecosystem}
+\cventry{2017 -- }{Author}{FitLins}{\href{https://fitlins.readthedocs.io}{fitlins.readthedocs.io}}{}%
+  {Application for fitting linear models to BIDS datasets}
+\cventry{2017 -- }{Maintainer}{fMRIPrep}{\href{https://fmriprep.org}{fmriprep.org}}{}%
+  {A Robust Preprocessing Pipeline for fMRI Data}
+\cventry{2017 -- }{Lead maintainer}{NiBabel}{\href{https://nipy.org/nibabel}{nipy.org/nibabel}}{}%
+  {Python library for reading/writing a variety of neuroimaging formats}
+\cventry{2017 -- }{Maintainer}{NiPype}{\href{https://nipype.readthedocs.io}{nipype.readthedocs.io}}{}%
+  {Python library for building and executing neuroimaging workflows}
+\cventry{2020 -- 2023}{Maintainer}{Versioneer}%
+  {\href{https://github.com/python-versioneer/python-versioneer/}{github.com/python-versioneer/python-versioneer}}{}%
+  {Python tool for integrating version control information in package metadata}
+
+\section{Service/Leadership}
+\cventry{2019 -- }{Maintainer}{The Brain Imaging Data Structure (BIDS)}{}{}{}
+\cventry{2019}{Co-moderator}{BIDS Computational Modeling Workshop}{Princeton, NJ}{}{}
+\cventry{2017}{Co-organizer}{BrainHack Global 2017}{Cambridge, MA}{}{}
+\cventry{2015}{Co-organizer}{7th Annual Inter-Science of Learning Conference}{La Jolla, CA}{}{}
+% \cventry{2014 -- 2016}{Student member}{CompNet Outreach and Meeting Initiatives Committee}{Boston University}{}{}
+% \cventry{2013 -- 2014}{President}{Computational Neuroscience Student Organization}{Boston University}{}{}
+\cventry{2013}{Co-organizer}{5th Annual Inter-Science of Learning Conference}{Philadelphia, PA}{}{}
 
 %%%% No longer a regular part of work
 %% \section{Awards and Fellowships}
@@ -92,74 +139,108 @@
 %% Update citations here. Order doesn't matter among or within groups.
 \nocitepr{Markiewicz2016,Esteban2018,Yarkoni2019,Poldrack2019,Esteban2020a,Moreau2020,
 	  Markiewicz2021,Dupre2021,Gau2021,Halchenko2021,Hanke2021,Goncalves2021}
-\nociteconf{Louthan2009,Roberts2010,Esteban2020b}
+\nociteconf{Louthan2009,Roberts2010,Esteban2020b,pydra-proc-scipy-2020}
+\nocitebook{%
+  datalad-handbook%
+}
 \nociteprep{Bansal2021,Ciric2021,Karakuzu2021,Norgaard2021}
 \nocitetalk{Johnson2013,Johnson2014,Markiewicz2016b,Markiewicz2017,
             Markiewicz2018software,
-            Markiewicz2019a,Markiewicz2019b,Markiewicz2019c}
+            Markiewicz2019a,Markiewicz2019b,Markiewicz2019c,Markiewicz2019d,
+            Markiewicz2019e,Markiewicz2019f,
+	    Markiewicz2020a,Markiewicz2020b,Markiewicz2020c}
 \nocitepost{JohnsonYazdanbakhsh2012,JohnsonBohland2012,JohnsonBohland2014a,
             JohnsonBohland2014b,Markiewicz2015,Markiewicz2016a,Yarkoni2018,
-            Markiewicz2018poster, Markiewicz2019poster}
-\nocitemthd{philips-cdas,you2015,fMRIPrep1_5_4,FitLins0_6_2}
-\nocitecode{PyMVPA2_4_1,nipype1_4_0,PySurfer0_9,nibabel3_0_0}
+            Markiewicz2018poster,Markiewicz2019poster,
+	    Markiewicz2021poster,Esteban2021,Adon2021}
+\nocitedev{
+  nipy-nibabel,
+  poldracklab-fitlins,
+  nipy-nipype,
+  npype-pydra,
+  fmriprep--a-robust-preprocessing-pipeline-for-functional-mri,
+  nibabies--a-robust-preprocessing-pipeline-for-infant-functional-mri,
+  mriqc--advancing-the-automatic-prediction-of-image-quality-in-mri-from-unseen-sites,
+  pybids-python,
+  nitransforms--a-python-tool-to-read--represent--manipulate--and-apply-n-dimensional-spatial-transforms,
+  smriprep-structural,
+  sdcflows--susceptibility-distortion-correction-workflows-,
+  niworkflows-neuroimaging%
+}
+\nocitecode{
+  bibsnet,
+  datalad-next-extension,
+  templateflow-client-accessing-the-library-of-standardized-neuroimaging-standard-spaces,
+  duecredit-duecredit,
+  bids-validator,
+  datalad-datalad,
+  me-ica-tedana,
+  PyMVPA2_4_1,PySurfer0_9%  Not fetchable by API
+}
+\nocitemthd{
+  philips-cdas-v0,
+  formant-detection-scripts-for-mapping-the-cortical-representation-of-speech-sounds-in-a-syllable-repetition-task%
+}
 
 %% Boilerplate that creates the order between sub-bibliographies and
 %% organizes into sections.
 \section{Publications}
 \bibliographystylepr{cvbib}
 \bibliographypr{self}
+\vspace{0.5em}
+\bibliographystylebook{cvbib}
+\bibliographybook{self,zenodo}
+\vspace{0.5em}
 \bibliographystyleconf{cvbib}
 \bibliographyconf{self}
+\vspace{0.5em}
 \bibliographystyleprep{cvbib}
 \bibliographyprep{self}
 \section{Presentations}
 \bibliographystyletalk{cvbib}
 \bibliographytalk{self}
 \footnotetext[2]{Presenter, when not first author}
+\vspace{0.5em}
 \bibliographystylepost{cvbib}
 \bibliographypost{self}
-\section{Software}
-\bibliographystylemthd{cvbib}
-\bibliographymthd{self}
+\section{Software}\label{Software}
+\bibliographystyledev{cvbib}
+\bibliographydev{self,zenodo}
+\vspace{0.5em}
 \bibliographystylecode{cvbib}
-\bibliographycode{self}
-
-\section{Service/Leadership}
-\cventry{2019}{Co-Moderator}{BIDS Computational Modeling Workshop}{Princeton, NJ}{}{}
-\cventry{2017}{Co-organizer}{BrainHack Global 2017}{Cambridge, MA}{}{}
-\cventry{2015}{Co-organizer}{7th Annual Inter-Science of Learning Conference}{La Jolla, CA}{}{}
-\cventry{2014 -- 2016}{Student member}{CompNet Outreach and Meeting Initiatives Committee}{Boston University}{}{}
-\cventry{2013 -- 2014}{President}{Computational Neuroscience Student Organization}{Boston University}{}{}
-\cventry{2013}{Co-organizer}{5th Annual Inter-Science of Learning Conference}{Philadelphia, PA}{}{}
+\bibliographycode{self,zenodo}
+\vspace{0.5em}
+\bibliographystylemthd{cvbib}
+\bibliographymthd{self,zenodo}
 
 % \section{Additional Research Experience}
 % \cventry{2005 -- 2008}{Undergraduate researcher}{University of Tulsa}%
 %     {Tulsa, OK}{}%
 %     {Operating systems security. Network traffic analysis. Advisor: John Hale}
 
-\section{Technical Expertise}
-\cvline{}{Data analysis, functional magnetic resonance imaging,
-    biological modeling, neural networks, neuroinformatics,
-    digital signal processing, speech analysis, pattern recognition,
-    software engineering, computer security, system administration,
-    database management.}
-\subsection{Technologies}
-\cvline{Scientific}{
-    FreeSurfer/FsFast, FSL, AFNI,   % fMRI
-    NiPype, PyMVPA,                 % fMRI/Python
-    scikit-learn, PsychoPy,         % Scientific Python
-    PRAAT}                          % Miscellaneous
-\cvline{Cluster computing}{SLURM, Load Sharing Facility (LSF),
-                           Oracle/Sun Grid Engine (SGE),
-                           Andrew File System (AFS)}
-%% \cvline{Web}{HTML/CSS, JavaScript, JQuery, Python/Django, Perl/CGI, PHP, WSGI}
-\cvline{Version control}{git (GitHub, git-annex), subversion, CVS}
-%\cvline{Administration}{nginx, Apache, GitLab, gitolite/git-annex}
-
-\subsection{Programming Languages}
-\cvline{Proficient}{Python 2/3, MATLAB, C, Perl, Shell}
-\cvline{Competent}{Haskell, \LaTeX, Java, Mathematica}
-\cvline{Familiar}{R, JavaScript, PHP, Common LISP}
+% \section{Technical Expertise}
+% \cvline{}{Data analysis, functional magnetic resonance imaging,
+%     biological modeling, neural networks, neuroinformatics,
+%     digital signal processing, speech analysis, pattern recognition,
+%     software engineering, computer security, system administration,
+%     database management.}
+% \subsection{Technologies}
+% \cvline{Scientific}{
+%     FreeSurfer/FsFast, FSL, AFNI,   % fMRI
+%     NiPype, PyMVPA,                 % fMRI/Python
+%     scikit-learn, PsychoPy,         % Scientific Python
+%     PRAAT}                          % Miscellaneous
+% \cvline{Cluster computing}{SLURM, Load Sharing Facility (LSF),
+%                            Oracle/Sun Grid Engine (SGE),
+%                            Andrew File System (AFS)}
+% %% \cvline{Web}{HTML/CSS, JavaScript, JQuery, Python/Django, Perl/CGI, PHP, WSGI}
+% \cvline{Version control}{git (GitHub, git-annex), subversion, CVS}
+% %\cvline{Administration}{nginx, Apache, GitLab, gitolite/git-annex}
+% 
+% \subsection{Programming Languages}
+% \cvline{Proficient}{Python 2/3, MATLAB, C, Perl, Shell}
+% \cvline{Competent}{Haskell, \LaTeX, Java, Mathematica}
+% \cvline{Familiar}{R, JavaScript, PHP, Common LISP}
 
 \vspace{24pt}
 \center{Updated: \monthyeardate\today}

@@ -1041,7 +1041,7 @@ FUNCTION {article}
   if$
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 FUNCTION {book}
@@ -1075,7 +1075,7 @@ FUNCTION {book}
   format.isbn output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 FUNCTION {booklet}
@@ -1090,7 +1090,7 @@ FUNCTION {booklet}
   format.isbn output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 
@@ -1131,7 +1131,7 @@ FUNCTION {inbook}
   if$
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 
@@ -1158,7 +1158,7 @@ FUNCTION {incollection}
   if$
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 FUNCTION {inproceedings}
@@ -1188,7 +1188,7 @@ FUNCTION {inproceedings}
   if$
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 FUNCTION {conference} { inproceedings }
@@ -1225,7 +1225,7 @@ FUNCTION {manual}
   format.edition output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 
@@ -1242,7 +1242,7 @@ FUNCTION {mastersthesis}
   address "address" bibinfo.check output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 
@@ -1256,7 +1256,21 @@ FUNCTION {misc}
   howpublished "howpublished" bibinfo.check output
   format.doi output
   new.block
-  format.note output
+  % format.note output
+  fin.entry
+  empty.misc.check
+}
+FUNCTION {software}
+{ output.bibitem
+  format.authors output
+  format.date output
+  title howpublished new.block.checkb
+  format.title output
+  howpublished new.block.checka
+  howpublished "howpublished" bibinfo.check output
+  format.doi output
+  new.block
+  % format.note output
   fin.entry
   empty.misc.check
 }
@@ -1273,7 +1287,7 @@ FUNCTION {phdthesis}
   address "address" bibinfo.check output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 
@@ -1288,7 +1302,7 @@ FUNCTION {presentation}
   %month "month" output.check
   %year "year" output.check
   new.block
-  format.note output
+  % format.note output
   new.sentence
   type missing$ 'skip$
   {"(" type capitalize * ")" * output}
@@ -1332,7 +1346,7 @@ FUNCTION {proceedings}
   format.isbn output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 
@@ -1349,7 +1363,7 @@ FUNCTION {techreport}
   address "address" bibinfo.check output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 
@@ -1361,7 +1375,7 @@ FUNCTION {unpublished}
   format.title "title" output.check
   format.doi output
   new.block
-  format.note "note" output.check
+  % format.note "note" output.check
   fin.entry
 }
 
