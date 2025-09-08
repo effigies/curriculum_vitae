@@ -11,15 +11,17 @@
 \usepackage{datetime}
 \usepackage{footmisc}
 \usepackage{multibib}
+\usepackage{underscore}
 
 % Creates sub-bibliographies
 % For example, pr creates \citepr, \nocitepr, \bibliographystylepr, \bibliographypr
 % \bibliographystylepr will create a \subsection{Peer Reviewed Journals}
 % And so on.
-\newcites{pr,conf,book,prep,post,talk,dev,mthd,code}{%
+\newcites{pr,conf,book,std,prep,post,talk,dev,mthd,code}{%
     Peer Reviewed Journals,%
     Conference Proceedings,%
     Books and Book Chapters,%
+    Data Standards,%
     Preprints,%
     Poster Presentations,%
     Invited Talks,%
@@ -42,24 +44,17 @@
 \begin{document}
 \makecvtitle
 
-\section{Education}
-\cventry{2017}{PhD. Cognitive and Neural Systems}%
-    {Boston University}{Boston, MA}{}%
-    {\underline{Dissertation}: Multivariate pattern analysis of input and output
-     representations of speech\\
-     \underline{Advisor}: Jason W. Bohland}
-\cventry{2009}{BS. Mathematics}{University of Tulsa}{Tulsa, OK}{}{}
-\cventry{2009}{BCS. Computer Science}{University of Tulsa}{Tulsa, OK}{}{}
-
 \section{Experience}
-\cventry{2017 -- }{Software Developer}{Stanford University}{Stanford, CA}{}%
+\cventry{2023 -- }{Senior Research Scholar}{Stanford University}{Stanford, CA}{}%
     {Center for Reproducible Neuroscience
 \begin{itemize}
-  \item fMRIPrep - developer
-  \item FitLins - lead developer
   \item OpenNeuro - technical lead
   \item Brain Imaging Data Structure (BIDS) - maintainer, extension lead
+  \item fMRIPrep - developer
+  \item FitLins - lead developer
 \end{itemize}}
+\cventry{2017 -- 2023}{Software Developer}{Stanford University}{Stanford, CA}{}%
+    {Center for Reproducible Neuroscience: fMRIPrep, BIDS, OpenNeuro, FitLins}
 \cventry{2009 -- 2010}{Bioinformatics programmer}{University of Tulsa}%
     {Tulsa, OK}{}{InSilico Research Group: PySNPRank, PyGAIN, Bioinformatics format converters}
 \cventry{2009 -- 2010}{Neuroinformatics intern}%
@@ -70,6 +65,15 @@
 %%     {High bandwidth traffic shaping, Transparent emergency data destruction}
 %% \cventry{Summer 2007}{Intern}{Meketrex Technologies, Inc.}{Tulsa, OK}{}%
 %%     {Technical copywriting}
+
+\section{Education}
+\cventry{2017}{PhD. Cognitive and Neural Systems}%
+    {Boston University}{Boston, MA}{}%
+    {\underline{Dissertation}: Multivariate pattern analysis of input and output
+     representations of speech\\
+     \underline{Advisor}: Jason W. Bohland}
+\cventry{2009}{BS. Mathematics}{University of Tulsa}{Tulsa, OK}{}{}
+\cventry{2009}{BCS. Computer Science}{University of Tulsa}{Tulsa, OK}{}{}
 
 \section{Teaching}
 \cventry{2019 -- }{Instructor}{Martinos Center for Biomedical Imaging - Functional MRI Workshop}{Boston}{MA}%
@@ -88,17 +92,17 @@
 %%     {MATH 1083 Contemporary Mathematics. Professor: Janica Edmonds}
 
 \section{Research funding}
-\subsection{Active}
+%%\subsection{Active}
+\subsection{Previous}
 \cventry{2021 -- 2023}{Co-Investigator}{Strengthening Community and Code Foundations for Brain Imaging}%
     {CZI Essential Open Source Software}{}{}
-
-\section{Professional societies}
-\cvline{}{Organization for Human Brain Mapping}
 
 \pagebreak
 
 \section{Open source development\protect\footnotemark[1]}
 \footnotetext[1]{Associated publications and additional contributions in \hyperref[Software]{Software section}}
+\cventry{2019 -- }{Maintainer}{lazy-loader}{\href{https://github.com/scientific-python/lazy-loader/}{github.com/scientific-python/lazy-loader}}{}%
+  {Python tools for querying and manipulating BIDS datasets}
 \cventry{2019 -- }{Maintainer}{PyBIDS}{\href{https://bids-standard.github.io/pybids/}{bids-standard.github.io/pybids}}{}%
   {Python tools for querying and manipulating BIDS datasets}
 \cventry{2018 -- }{Maintainer}{Pydra}{\href{https://nipype.github.io/pydra/}{nipype.github.io/pydra}}{}%
@@ -116,6 +120,7 @@
   {Python tool for integrating version control information in package metadata}
 
 \section{Service/Leadership}
+\cventry{2023 -- }{Member}{NiPreps Steering Committee}{}{}{}
 \cventry{2019 -- }{Maintainer}{The Brain Imaging Data Structure (BIDS)}{}{}{}
 \cventry{2022}{Co-moderator}{Open Science Room Panel - ``Open Code: Myths Debunked''}%
   {Glasgow, UK}{}{}
@@ -125,6 +130,10 @@
 % \cventry{2014 -- 2016}{Student member}{CompNet Outreach and Meeting Initiatives Committee}{Boston University}{}{}
 % \cventry{2013 -- 2014}{President}{Computational Neuroscience Student Organization}{Boston University}{}{}
 \cventry{2013}{Co-organizer}{5th Annual Inter-Science of Learning Conference}{Philadelphia, PA}{}{}
+
+\section{Professional societies}
+\cvline{}{Organization for Human Brain Mapping}
+\cvline{}{Phi Kappa Phi}
 
 %%%% No longer a regular part of work
 %% \section{Awards and Fellowships}
@@ -141,13 +150,17 @@
 %% Update citations here. Order doesn't matter among or within groups.
 \nocitepr{Markiewicz2016,Esteban2018,Yarkoni2019,Poldrack2019,Esteban2020a,Moreau2020,
 	  Markiewicz2021,Dupre2021,Gau2021,Halchenko2021,Hanke2021,Goncalves2021,
-	  Karakuzu2022,Ciric2022,Norgaard2022,Clement2022,Niso2022,
-	  Bourget2022,Vega2022}
-\nociteconf{Louthan2009,Roberts2010,Esteban2020b,pydra-proc-scipy-2020}
+	  Karakuzu2022,Ciric2022,Norgaard2022,Clement2022,Niso2022,Bourget2022,Vega2022,
+      Kiar2023,Halchenko2024,Poldrack2024,Wang2024,Wannan2024,
+      Bouchard2025,Chatelain2025,Harms2025,Luke2025}
+\nociteconf{Louthan2009,Roberts2010,Esteban2020b,pydra-proc-scipy-2020,Moia2024}
 \nocitebook{%
   datalad-handbook%
 }
-\nociteprep{Esteban2019a,Bansal2021,Provins2022}
+\nocitestd{%
+    brain-imaging%
+}
+\nociteprep{Esteban2019a,Bansal2021,Provins2022,reproducible-benchmarka,Chen2024,Goncalves2025}
 \nocitetalk{Johnson2013,Johnson2014,Markiewicz2016b,Markiewicz2017,
             Markiewicz2018software,
             Markiewicz2019a,Markiewicz2019b,Markiewicz2019c,Markiewicz2019d,
@@ -158,57 +171,65 @@
 \nocitepost{JohnsonYazdanbakhsh2012,JohnsonBohland2012,JohnsonBohland2014a,
             JohnsonBohland2014b,Markiewicz2015,Markiewicz2016a,Yarkoni2018,
             Markiewicz2018poster,Markiewicz2019poster,
-	    Markiewicz2021poster,Esteban2021,Adon2021}
+	    Markiewicz2021poster,Esteban2021,Adon2021,
+        Esteban2024,Handwerker2024,Herholz2024,Markiewicz2024,
+        Close2025,Jwa2025,Kai2025}
 \nocitedev{
   nipy-nibabel,
   poldracklab-fitlins,
   nipy-nipype,
   nipype-pydra,
-  fmriprep--a-robust-preprocessing-pipeline-for-functional-mri,
-  nibabies--a-robust-preprocessing-pipeline-for-infant-functional-mri,
-  mriqc--advancing-the-automatic-prediction-of-image-quality-in-mri-from-unseen-sites,
+  fmriprep-robust,
+  nibabies-robust,
+  mriqc-advancing,
   pybids-python,
-  nitransforms--a-python-tool-to-read--represent--manipulate--and-apply-n-dimensional-spatial-transforms,
+  nitransforms-python,
   smriprep-structural,
-  sdcflows--susceptibility-distortion-correction-workflows-,
+  sdcflows-susceptibility,
+  bids-validator,
   niworkflows-neuroimaging%
 }
 \nocitecode{
+  aslprep-robust,
   bibsnet,
   datalad-next-extension,
-  templateflow-client--accessing-the-library-of-standardized-neuroimaging-standard-spaces,
+  templateflow-client,
   duecredit-duecredit,
-  bids-validator,
   datalad-datalad,
   me-ica-tedana,
+  heudiconv-—,
+  nilearn,
   PyMVPA2_4_1,PySurfer0_9%  Not fetchable by API
 }
 \nocitemthd{
   philips-cdas-v0,
-  formant-detection-scripts-for-mapping-the-cortical-representation-of-speech-sounds-in-a-syllable-repetition-task%
+  formant-detection%
 }
 
 %% Boilerplate that creates the order between sub-bibliographies and
 %% organizes into sections.
 \section{Publications}
 \bibliographystylepr{cvbib}
-\bibliographypr{self}
+\bibliographypr{self,zenodo}
 \vspace{0.5em}
 \bibliographystylebook{cvbib}
 \bibliographybook{self,zenodo}
 \vspace{0.5em}
+\bibliographystylestd{cvbib}
+\bibliographystd{self,zenodo}
+\vspace{0.5em}
 \bibliographystyleconf{cvbib}
-\bibliographyconf{self}
+\bibliographyconf{self,zenodo}
 \vspace{0.5em}
 \bibliographystyleprep{cvbib}
-\bibliographyprep{self}
+\bibliographyprep{self,zenodo}
 \section{Presentations}
 \bibliographystyletalk{cvbib}
-\bibliographytalk{self}
+\bibliographytalk{self,zenodo}
 \footnotetext[2]{Presenter, when not first author}
 \vspace{0.5em}
 \bibliographystylepost{cvbib}
-\bibliographypost{self}
+\bibliographypost{self,zenodo}
 \section{Software}\label{Software}
 \bibliographystyledev{cvbib}
 \bibliographydev{self,zenodo}
@@ -242,7 +263,7 @@
 % %% \cvline{Web}{HTML/CSS, JavaScript, JQuery, Python/Django, Perl/CGI, PHP, WSGI}
 % \cvline{Version control}{git (GitHub, git-annex), subversion, CVS}
 % %\cvline{Administration}{nginx, Apache, GitLab, gitolite/git-annex}
-% 
+%
 % \subsection{Programming Languages}
 % \cvline{Proficient}{Python 2/3, MATLAB, C, Perl, Shell}
 % \cvline{Competent}{Haskell, \LaTeX, Java, Mathematica}
